@@ -15,6 +15,26 @@
 
     "modules": [
         {
+            "name": "libpng",
+            "config-opts": [
+                "--disable-static"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig",
+                "/share"
+            ],
+            "sources": [
+                {
+                    "__comment": "Must be version 1.2.x",
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/project/libpng/libpng12/1.2.59/libpng-1.2.59.tar.xz",
+                    "sha256": "b4635f15b8adccc8ad0934eea485ef59cc4cae24d0f0300a9a941e51974ffcc7"
+                }
+            ]
+        },
+        {
             "name": "ghostscript",
             "config-opts": [ "--disable-cups" ],
             "make-args": [ "so" ],
@@ -62,13 +82,37 @@
             ]
         },
         {
+      "name": "imagemagick",
+          "config-opts": [
+            "--enable-static=yes",
+            "--disable-docs",
+            "--with-png",
+            "--with-jpeg",
+            "--with-zlib",
+            "--enable-zero-configuration"
+          ],
+          "sources": [
+            {
+                "type": "archive",
+                "url": "https://www.imagemagick.org/download/ImageMagick-7.0.8-26.tar.xz",
+                "sha256": "04c07773c47f401c321297a42f908c00036ec7f9908adbd667db2b182352a272"
+            },
+            {
+                "type": "shell",
+                "commands": [
+                    "sed -i '32a <policy domain=\\\\\"coder\\\\\" rights=\\\\\"read | write\\\\\" pattern=\\\\\"PDF\\\\\"/> \\\\' MagickCore/policy-private.h"
+                ]
+            }
+          ]
+        },
+        {
             "name": "pdftricks",
             "buildsystem": "meson",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/muriloventuroso/pdftricks/archive/0.1.6.tar.gz",
-                    "sha256": "237cc7b2877bd0b20ce0ae0090f09d5f483c6d98515e01a0435725776af1fac0"
+                    "url": "https://github.com/muriloventuroso/pdftricks/archive/0.2.0.tar.gz",
+                    "sha256": "b2f127907ef80286b6e5bd1b4f529bc854f343e71135cb221fa3675f75483cdb"
                 },
                 {
                     "type": "patch",
