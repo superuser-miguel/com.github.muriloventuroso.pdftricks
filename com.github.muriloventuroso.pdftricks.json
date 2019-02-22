@@ -111,8 +111,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/muriloventuroso/pdftricks/archive/0.2.0.tar.gz",
-                    "sha256": "b2f127907ef80286b6e5bd1b4f529bc854f343e71135cb221fa3675f75483cdb"
+                    "url": "https://github.com/muriloventuroso/pdftricks/archive/0.2.1.tar.gz",
+                    "sha256": "07e198ca791b2de35a4a078c262ccd30676409523be7d6034c806cac87b75813"
                 },
                 {
                     "type": "patch",
