@@ -1,7 +1,7 @@
 {
     "app-id": "com.github.muriloventuroso.pdftricks",
     "runtime": "org.gnome.Platform",
-    "runtime-version" : "3.30",
+    "runtime-version" : "3.34",
     "base" : "io.elementary.BaseApp",
     "base-version" : "juno",
     "sdk": "org.gnome.Sdk",
@@ -40,8 +40,9 @@
             "make-args": [ "so" ],
             "make-install-args": [ "soinstall" ],
             "cleanup": [
-                "/share/ghostscript/9.25/doc/",
-                "/share/ghostscript/9.25/examples",
+                "/share/ghostscript/9.26/doc/",
+                "/share/ghostscript/9.26/examples",
+                "/share/man/",
                 "/bin/dvipdf",
                 "/bin/font2c",
                 "/bin/gsbj",
@@ -72,8 +73,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz",
-                    "sha512": "831fc019bd477f7cc2d481dc5395ebfa4a593a95eb2fe1eb231a97e450d7540d"
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.xz",
+                    "sha256": "90ed475f37584f646e9ef829932b2525d5c6fc2e0147e8d611bc50aa0e718598"
                 },
                 {
                     "type": "shell",
@@ -94,8 +95,8 @@
           "sources": [
             {
                 "type": "archive",
-                "url": "https://www.imagemagick.org/download/ImageMagick.tar.xz",
-                "sha256": "d7aeb906b1c6b8d3292d4a8a94f6ac58683e25d972bbb8ebae8b300d8d707a1b"
+                "url": "https://www.imagemagick.org/download/ImageMagick-7.0.8-66.tar.xz",
+                "sha256": "300fbcf4745a4ca89c2b6f404170502e2e270524d0512523b1449de1f2e76a86"
             },
             {
                 "type": "shell",
