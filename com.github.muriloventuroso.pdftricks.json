@@ -1,10 +1,10 @@
 {
     "app-id": "com.github.muriloventuroso.pdftricks",
-    "runtime": "org.gnome.Platform",
-    "runtime-version" : "3.34",
-    "base" : "io.elementary.BaseApp",
-    "base-version" : "juno",
-    "sdk": "org.gnome.Sdk",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "19.08",
+    "base": "io.elementary.BaseApp",
+    "base-version": "juno-19.08",
+    "sdk": "org.freedesktop.Sdk",
     "command": "com.github.muriloventuroso.pdftricks",
     "finish-args": [
         "--share=ipc",
@@ -13,8 +13,7 @@
         "--socket=wayland"
     ],
 
-    "modules": [
-        {
+    "modules": [{
             "name": "libpng",
             "config-opts": [
                 "--disable-static"
@@ -25,20 +24,18 @@
                 "/lib/pkgconfig",
                 "/share"
             ],
-            "sources": [
-                {
-                    "__comment": "Must be version 1.2.x",
-                    "type": "archive",
-                    "url": "https://downloads.sourceforge.net/project/libpng/libpng12/1.2.59/libpng-1.2.59.tar.xz",
-                    "sha256": "b4635f15b8adccc8ad0934eea485ef59cc4cae24d0f0300a9a941e51974ffcc7"
-                }
-            ]
+            "sources": [{
+                "__comment": "Must be version 1.2.x",
+                "type": "archive",
+                "url": "https://downloads.sourceforge.net/project/libpng/libpng12/1.2.59/libpng-1.2.59.tar.xz",
+                "sha256": "b4635f15b8adccc8ad0934eea485ef59cc4cae24d0f0300a9a941e51974ffcc7"
+            }]
         },
         {
             "name": "ghostscript",
-            "config-opts": [ "--disable-cups" ],
-            "make-args": [ "so" ],
-            "make-install-args": [ "soinstall" ],
+            "config-opts": ["--disable-cups"],
+            "make-args": ["so"],
+            "make-install-args": ["soinstall"],
             "cleanup": [
                 "/share/ghostscript/9.26/doc/",
                 "/share/ghostscript/9.26/examples",
@@ -70,8 +67,7 @@
                 "/bin/ps2ps2",
                 "/bin/unix-lpr.sh"
             ],
-            "sources": [
-                {
+            "sources": [{
                     "type": "archive",
                     "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.xz",
                     "sha256": "90ed475f37584f646e9ef829932b2525d5c6fc2e0147e8d611bc50aa0e718598"
@@ -83,37 +79,35 @@
             ]
         },
         {
-      "name": "imagemagick",
-          "config-opts": [
-            "--enable-static=yes",
-            "--disable-docs",
-            "--with-png",
-            "--with-jpeg",
-            "--with-zlib",
-            "--enable-zero-configuration"
-          ],
-          "sources": [
-            {
-                "type": "archive",
-                "url": "https://www.imagemagick.org/download/ImageMagick-7.0.8-66.tar.xz",
-                "sha256": "300fbcf4745a4ca89c2b6f404170502e2e270524d0512523b1449de1f2e76a86"
-            },
-            {
-                "type": "shell",
-                "commands": [
-                    "sed -i '32a <policy domain=\\\\\"coder\\\\\" rights=\\\\\"read | write\\\\\" pattern=\\\\\"PDF\\\\\"/> \\\\' MagickCore/policy-private.h"
-                ]
-            }
-          ]
+            "name": "imagemagick",
+            "config-opts": [
+                "--enable-static=yes",
+                "--disable-docs",
+                "--with-png",
+                "--with-jpeg",
+                "--with-zlib",
+                "--enable-zero-configuration"
+            ],
+            "sources": [{
+                    "type": "archive",
+                    "url": "https://www.imagemagick.org/download/ImageMagick-7.0.8-68.zip",
+                    "sha256": "10147bf021be2c8854154fca15594534a123f2d8aa8be47a1bd5e1f585e9c938"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "sed -i '32a <policy domain=\\\\\"coder\\\\\" rights=\\\\\"read | write\\\\\" pattern=\\\\\"PDF\\\\\"/> \\\\' MagickCore/policy-private.h"
+                    ]
+                }
+            ]
         },
         {
             "name": "pdftricks",
             "buildsystem": "meson",
-            "sources": [
-                {
+            "sources": [{
                     "type": "archive",
-                    "url": "https://github.com/muriloventuroso/pdftricks/archive/0.2.3.tar.gz",
-                    "sha256": "7a9ceb01912fc87ac002e08ebd44e3937d64fb7f51315a0fb69ef9fb46a74a7c"
+                    "url": "https://github.com/muriloventuroso/pdftricks/archive/0.2.7.tar.gz",
+                    "sha256": "501fafa0405e6e96560c2db3e43b4edb875129d74b9b20363af8d2b12a13e8cd"
                 },
                 {
                     "type": "patch",
@@ -123,5 +117,3 @@
         }
     ]
 }
-
-
