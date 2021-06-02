@@ -1,9 +1,9 @@
 {
     "app-id": "com.github.muriloventuroso.pdftricks",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "19.08",
+    "runtime-version": "20.08",
     "base": "io.elementary.BaseApp",
-    "base-version": "juno-19.08",
+    "base-version": "juno-20.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "com.github.muriloventuroso.pdftricks",
     "finish-args": [
@@ -34,6 +34,13 @@
         {
             "name": "ghostscript",
             "config-opts": ["--disable-cups"],
+            "build-options": {
+              "arch": {
+                "aarch64": {
+                  "cppflags": "-DPNG_ARM_NEON_OPT=0"
+                 }
+              }
+            },
             "make-args": ["so"],
             "make-install-args": ["soinstall"],
             "cleanup": [
@@ -69,8 +76,8 @@
             ],
             "sources": [{
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.xz",
-                    "sha256": "90ed475f37584f646e9ef829932b2525d5c6fc2e0147e8d611bc50aa0e718598"
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9540/ghostscript-9.54.0.tar.xz",
+                    "sha256": "c2b7b43cde600f4e70efb2cd95865f6d884a67315c3de235914697d8ccde6e3b"
                 },
                 {
                     "type": "shell",
@@ -90,8 +97,8 @@
             ],
             "sources": [{
                     "type": "archive",
-                    "url": "https://www.imagemagick.org/download/ImageMagick-7.0.8-68.zip",
-                    "sha256": "10147bf021be2c8854154fca15594534a123f2d8aa8be47a1bd5e1f585e9c938"
+                    "url": "https://download.imagemagick.org/ImageMagick/download/ImageMagick-7.0.11-14.tar.xz",
+                    "sha256": "a1010a27b93f07374400988d026449c8b21e10178910cd473b4170b4d2c6c030"
                 },
                 {
                     "type": "shell",
@@ -106,8 +113,8 @@
             "buildsystem": "meson",
             "sources": [{
                     "type": "archive",
-                    "url": "https://github.com/muriloventuroso/pdftricks/archive/0.2.7.tar.gz",
-                    "sha256": "501fafa0405e6e96560c2db3e43b4edb875129d74b9b20363af8d2b12a13e8cd"
+                    "url": "https://github.com/muriloventuroso/pdftricks/archive/0.3.1.tar.gz",
+                    "sha256": "af107d9f5b238a65a78158f3e38ae4cc07a1ea9bdb736fb64cb85fdaa9867721"
                 },
                 {
                     "type": "patch",
